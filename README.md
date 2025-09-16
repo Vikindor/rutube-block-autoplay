@@ -9,8 +9,11 @@ Works both on regular video pages and embedded players.
 - Overrides the native `video.play()` method to block the first automatic play attempt.
 
 ## 🔧 Installation
-1. Install [Tampermonkey](https://www.tampermonkey.net/) (or a compatible userscript manager).
-2. [Click here to install the script](./Rutube_-_Block_Autoplay.js) (or copy the code into a new Tampermonkey script).
+1. Install [Tampermonkey](https://www.tampermonkey.net/) (or another userscript manager).
+2. Install the script from one of the mirrors:
+   - [GreasyFork](https://greasyfork.org/en/scripts/544729-rutube-block-autoplay/)
+   - [OpenUserJS](https://openuserjs.org/scripts/Vikindor/Rutube_-_Block_Autoplay)
+   - Or [install directly from this repository](./Rutube_-_Block_Autoplay.js).
 
 ## ⚙️ How it works
 - The script waits until a `<video>` element appears.
