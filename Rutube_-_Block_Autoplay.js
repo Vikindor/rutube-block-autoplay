@@ -1,0 +1,42 @@
+// ==UserScript==
+// @name         Rutube - Block Autoplay
+// @name:ru      Rutube - Блокировка автовоспроизведения
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Blocks video autoplay on Rutube and in embed players by freezing the player's autoplay behavior.
+// @description:ru     Блокирует автозапуск видео на Rutube и в embed-плеерах через заморозку автозапуска плеера.
+// @author       Vikindor
+// @license      MIT
+// @match        https://rutube.ru/video/*
+// @match        https://rutube.ru/play/embed/*
+// @grant        none
+// @run-at       document-start
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    const observer = new MutationObserver((mutations, obs) => {
+        const video = document.querySelector('video');
+        if (video) {
+            video.pause();
+            video.autoplay = false;
+            video.removeAttribute('autoplay');
+
+            const originalPlay = video.play;
+            let firstCall = true;
+
+            video.play = function (...args) {
+                if (firstCall) {
+                    firstCall = false;
+                    return Promise.reject('Autoplay prevented');
+                }
+                return originalPlay.apply(this, args);
+            };
+
+            obs.disconnect();
+        }
+    });
+
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+})();
