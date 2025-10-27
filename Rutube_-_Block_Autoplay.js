@@ -3,10 +3,10 @@
 // @name:ru      Rutube - Блокировка автовоспроизведения
 // @namespace    rutube-block-autoplay
 // @version      1.0
-// @description  Blocks video autoplay on Rutube and in embed players by freezing the player's autoplay behavior.
-// @description:ru     Блокирует автозапуск видео на сайте Rutube и во встроенных плеерах через заморозку автозапуска плеера.
+// @description  Blocks video autoplay on Rutube and in embed players by freezing the player's autoplay behavior
+// @description:ru     Блокирует автозапуск видео на сайте Rutube и во встроенных плеерах через заморозку автозапуска плеера
 // @author       Vikindor (https://vikindor.github.io/)
-// @homepageURL  https://github.com/Vikindor/rutube-block-autoplay
+// @homepageURL  https://github.com/Vikindor/rutube-block-autoplay/
 // @supportURL   https://github.com/Vikindor/rutube-block-autoplay/issues
 // @license      MIT
 // @match        https://rutube.ru/video/*
