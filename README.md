@@ -2,7 +2,7 @@
 Rutube - Block Autoplay
 </h1>
 
-Userscript for browsers that prevents videos on **Rutube** from starting automatically. Works both on regular video pages and embedded players.
+Userscript for browsers that prevents videos on Rutube from starting automatically. Works both on regular video pages and embedded players.
 
 ## ✨ Features
 
