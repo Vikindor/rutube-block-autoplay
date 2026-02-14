@@ -2,7 +2,7 @@
 // @name         Rutube - Block Autoplay
 // @name:ru      Rutube - Блокировка автовоспроизведения
 // @namespace    rutube-block-autoplay
-// @version      1.0
+// @version      1.0.1
 // @description  Blocks video autoplay on Rutube and in embed players by freezing the player's autoplay behavior
 // @description:ru     Блокирует автозапуск видео на сайте Rutube и во встроенных плеерах через заморозку автозапуска плеера
 // @author       Vikindor (https://vikindor.github.io/)
@@ -16,29 +16,29 @@
 // ==/UserScript==
 
 (function () {
-    'use strict';
+  'use strict';
 
-    const observer = new MutationObserver((mutations, obs) => {
-        const video = document.querySelector('video');
-        if (video) {
-            video.pause();
-            video.autoplay = false;
-            video.removeAttribute('autoplay');
+  const observer = new MutationObserver((mutations, obs) => {
+    const video = document.querySelector('video');
+    if (video) {
+      video.pause();
+      video.autoplay = false;
+      video.removeAttribute('autoplay');
 
-            const originalPlay = video.play;
-            let firstCall = true;
+      const originalPlay = video.play;
+      let firstCall = true;
 
-            video.play = function (...args) {
-                if (firstCall) {
-                    firstCall = false;
-                    return Promise.reject('Autoplay prevented');
-                }
-                return originalPlay.apply(this, args);
-            };
-
-            obs.disconnect();
+      video.play = function (...args) {
+        if (firstCall) {
+          firstCall = false;
+          return Promise.reject('Autoplay prevented');
         }
-    });
+        return originalPlay.apply(this, args);
+      };
 
-    observer.observe(document.documentElement, { childList: true, subtree: true });
+      obs.disconnect();
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true });
 })();
